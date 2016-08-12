@@ -3,6 +3,7 @@ import java.util.*;
 public class Deck {
   private int nbOfCards;
   private Card[] cards;
+  private int cardsUsed;
 
   public Deck(int nbOfCards) {
     this.nbOfCards = nbOfCards;
@@ -23,16 +24,31 @@ public class Deck {
     this.cards[cardCount] = card;
   }
 
-  private int randomNumber(int min, int max){
-    Random rand = new Random();
-    int result = rand.nextInt((max-min) + 1) + min;
-    return result;
+  public int cardsLeft() {
+      return cards.length - cardsUsed;
   }
 
-  public int randomInt(){
-    return randomNumber(1, this.nbOfCards);
+  public void shuffle() {
+    for ( int i = nbOfCards-1; i > 0; i-- ) {
+      int rand = (int)(Math.random()*(i+1));
+      Card temp = cards[i];
+      cards[i] = cards[rand];
+      cards[rand] = temp;
+    }
+    cardsUsed = 0;
   }
-  public Card pick(){
-    return this.cards[randomInt()];
+
+
+  public Card pick() throws IllegalStateException {
+    if (cardsUsed == cards.length){
+      throw new IllegalStateException ("No cards are left in the deck.");
+    }
+    cardsUsed++;
+    return cards[cardsUsed - 1];
+        // Programming note:  Cards are not literally removed from the array
+        // that represents the deck.  We just keep track of how many cards
+        // have been used.
   }
+
+
 }

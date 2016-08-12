@@ -9,4 +9,13 @@ public class Card {
     this.value = value;
     this.suit = suit;
   }
+
+  public CardType getSuit(){
+    return this.suit;
+  }
+  
+  public int getValue(){
+    return this.value;
+  }
+
 }
