@@ -5,17 +5,11 @@ public class Game {
   private ArrayList<Player> players = new ArrayList<Player>();
   private DeckFactory factory;
   private Deck deck;
-  //private WinChecker winChecker = new WinChecker();
 
-  public void buildDeck(){
-    factory = new DeckFactory();
-    deck = factory.buildDeck();
+  public Game(Deck deck){
+    this.deck = deck;
   }
-
-  public void shuffleDeck(){
-    deck.shuffle();
-  }
-
+  
   public Deck getDeck(){
     return this.deck;
   }
@@ -24,18 +18,20 @@ public class Game {
     players.add(player);
   }
 
+  public ArrayList<Player> getPlayers(){
+    return this.players;
+  }
+
   public int playerCount(){
     return players.size();
   }
 
-  public void deal(){
-    for (Player player : this.players){
-      for (int i = 0; i < 3;i++){
-        Card card = deck.pick();
-        player.setHand(card);
-      }
-
-    } 
+  public void deal(Player player){
+    Card card1 = this.deck.pick();
+    Card card2 = this.deck.pick();
+    Card card3 = this.deck.pick();
+    player.setHand(card1, card2, card3);
   }
+
 
 }

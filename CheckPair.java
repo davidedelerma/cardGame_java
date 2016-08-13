@@ -1,11 +1,11 @@
 import java.util.*;
 
 
-public class CheckPrial {
+public class CheckPair {
 
   private Card[] hand;
 
-  public CheckPrial(){
+  public CheckPair(){
 
   } 
 
@@ -16,7 +16,7 @@ public class CheckPrial {
         count ++;
       }
     }
-    if (count == 2){
+    if (count == 1){
       return true;
     } else {
       return false;

@@ -3,26 +3,28 @@ import java.util.*;
 public class Player {
 
   private String name;
-  private ArrayList<Card> hand;
+  private Card[] hand;
 
   public Player(String name){
     this.name = name;
-    this.hand = new ArrayList<Card>();
+    this.hand = new Card[3];
   }
 
   public String getName(){
     return this.name;
   }
 
-  public void setHand(Card card){
-    this.hand.add(card);
+  public void setHand(Card card1, Card card2, Card card3){
+    this.hand[0] = card1;
+    this.hand[1] = card2;
+    this.hand[2] = card3;
   }
 
-  public ArrayList<Card> getHand(){
+  public Card[] getHand(){
     return this.hand;
   }
 
   public String printHand(){
-    return this.hand.get(1).toString() + ", " + this.hand.get(1).toString() + ", " + this.hand.get(1).toString();
+    return this.hand[0].toString() + ", " + this.hand[1].toString() + ", " + this.hand[2].toString();
   }
 }
