@@ -10,6 +10,10 @@ public class Deck {
     this.cards = new Card[nbOfCards];
   }
 
+  public int getNbOfCards(){
+    return this.nbOfCards;
+  }
+
   public int cardCount(){
     int count = 0;
     for (Card card : cards){
@@ -19,6 +23,7 @@ public class Deck {
     }
     return count;
   }
+  
   public void addCard(Card card) {
     int cardCount = cardCount();
     this.cards[cardCount] = card;
