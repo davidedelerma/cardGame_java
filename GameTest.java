@@ -294,12 +294,19 @@ public class GameTest {
     assertEquals(1,player2.getWin());
   }
 
-  @Test 
-  public void gameIsOver(){
-    for(int i = 0; i = deck.getNbOfCards(); i++){
-      Card card = deck.pick();
-    }
-    assertEquals(true, game.endGame());
+  @Test
+  public void gameOver(){
+    game.addPlayer(player);
+    game.addPlayer(player2);
+    game.deal();
+    game.deal();
+    game.deal();
+    game.deal();
+    game.deal();
+    game.deal();
+    game.deal();
+    game.deal();
+    assertEquals(false, game.deal());
   }
 
 }

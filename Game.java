@@ -32,12 +32,21 @@ public class Game {
     return players.size();
   }
 
-  public void deal(){
-    for (Player player : players){
-      Card card1 = this.deck.pick();
-      Card card2 = this.deck.pick();
-      Card card3 = this.deck.pick();
-      player.setHand(card1, card2, card3);
+  public boolean deal(){
+    try {
+      for (Player player : players){
+        Card card1 = this.deck.pick();
+        Card card2 = this.deck.pick();
+        Card card3 = this.deck.pick();
+        player.setHand(card1, card2, card3);
+      }
+      return true;
+    }
+    catch (IllegalStateException ex){
+      ex.printStackTrace();
+      System.out.println("Exception message: ");
+      System.out.println(ex.getMessage());
+      return false;
     }
   }
 
@@ -80,11 +89,5 @@ public class Game {
     }
   }
 
-  public boolean endGame(){
-    if(deck.cardsLeft() >= deck.getNbOfCards()){
-      return true;
-    }
-    return false;
-  }
 
 }
