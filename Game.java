@@ -71,14 +71,23 @@ public class Game {
     Player player2 = players.get(1);
 
     if (player1.getPoints() > player2.getPoints()){
+
       players.get(0).win();
+
     } else if (player1.getPoints() > player2.getPoints()){
+
       players.get(1).win();
+
     } else if (player1.getPoints() == player2.getPoints()){
+
       if( highestP1.check(player1.getHand()) > highestP2.check(player2.getHand()) ){
+
         players.get(0).win();
+
       } else if (highestP1.check(player1.getHand()) < highestP2.check(player2.getHand())){
+
         players.get(1).win();
+
       }
     }
   }

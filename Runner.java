@@ -7,6 +7,7 @@ public class Runner{
   Game game;
   Player player1;
   Player player2;
+
   public Runner (){
     //refactoring using a Viewer class
     factory = new DeckFactory();
@@ -30,6 +31,14 @@ public class Runner{
     int count = 0;
     while (game.deal() == true){
       System.out.print(player1.printHand());
+      System.out.print("\n");
+      System.out.print(player2.printHand());
+      System.out.print("\n");
+      game.pointsChecker();
+      game.defineWinner();
+      System.out.format("nb of %s wins : %d ; nb of %s wins : %d  ", player1.getName(), player1.getWin(),player2.getName(), player2.getWin());
+      System.out.print("\n");
+      game.resetPoints();
     }
   }
 

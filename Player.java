@@ -44,6 +44,6 @@ public class Player {
   }
 
   public String printHand(){
-    return this.hand[0].toString() + ", " + this.hand[1].toString() + ", " + this.hand[2].toString();
+    return String.format("The cards in hand of %s are: %d %s , %d %s , %d %s ", this.name, this.hand[0].getValue(), this.hand[0].getSuit().toString(), this.hand[1].getValue(), this.hand[1].getSuit().toString(),this.hand[2].getValue(), this.hand[2].getSuit().toString());
   }
 }

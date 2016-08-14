@@ -259,6 +259,42 @@ public class GameTest {
   }
 
   @Test
+  public void player1WinTheTurnWithPair(){
+    game.addPlayer(player);
+    game.addPlayer(player2);
+    Card card1 = new Card(1, CardType.SPADES);
+    Card card2 = new Card(1, CardType.HEARTS);
+    Card card3 = new Card(3, CardType.DIAMONDS);
+    player.setHand(card1, card2, card3);
+    Card card4 = new Card(2, CardType.SPADES);
+    Card card5 = new Card(4, CardType.HEARTS);
+    Card card6 = new Card(6, CardType.DIAMONDS);
+    player2.setHand(card4, card5, card6);
+    game.pointsChecker();
+    game.defineWinner();
+    assertEquals(1,player.getWin());
+    assertEquals(0,player2.getWin());
+  }
+
+  // @Test
+  // public void canGetNameOfPlayer1WinTheTurnWithPair(){
+  //   game.addPlayer(player);
+  //   game.addPlayer(player2);
+  //   Card card1 = new Card(12, CardType.CLUBS);
+  //   Card card2 = new Card(12, CardType.DIAMONDS);
+  //   Card card3 = new Card(10, CardType.HEARTS);
+  //   player.setHand(card1, card2, card3);
+  //   Card card4 = new Card(9, CardType.HEARTS);
+  //   Card card5 = new Card(2, CardType.SPADES);
+  //   Card card6 = new Card(7, CardType.SPADES);
+  //   player2.setHand(card4, card5, card6);
+  //   game.pointsChecker();
+  //   Player winner = game.defineWinner();
+  //   assertEquals("davide",winner.getName());
+  //   assertEquals(0,player2.getWin());
+  // }
+
+  @Test
   public void player1WinHighestCard(){
     game.addPlayer(player);
     game.addPlayer(player2);
@@ -294,20 +330,20 @@ public class GameTest {
     assertEquals(1,player2.getWin());
   }
 
-  @Test
-  public void gameOver(){
-    game.addPlayer(player);
-    game.addPlayer(player2);
-    game.deal();
-    game.deal();
-    game.deal();
-    game.deal();
-    game.deal();
-    game.deal();
-    game.deal();
-    game.deal();
-    assertEquals(false, game.deal());
-  }
+  // @Test
+  // public void gameOver(){
+  //   game.addPlayer(player);
+  //   game.addPlayer(player2);
+  //   game.deal();
+  //   game.deal();
+  //   game.deal();
+  //   game.deal();
+  //   game.deal();
+  //   game.deal();
+  //   game.deal();
+  //   game.deal();
+  //   assertEquals(false, game.deal());
+  // }
 
 }
 
